@@ -1,0 +1,21 @@
+<nav class="navbar navbar-light bg-faded">
+  <%= link_to 'Nhà Hàng Tối', root_url, class:"navbar-brand" %>
+  <ul class="nav navbar-nav">
+    <li class="nav-item active">
+      <%= link_to 'Home', root_url, class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to 'Menu', welcome_menu_url, class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to 'Contact Us', welcome_contact_url, class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to 'New Food', new_food_path, class: "nav-link" %>
+    </li>
+  </ul>
+  <form class="form-inline pull-xs-right">
+    <input class="form-control" type="text" placeholder="Search">
+    <button class="btn btn-success-outline" type="submit">Search</button>
+  </form>
+</nav>
