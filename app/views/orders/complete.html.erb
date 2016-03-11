@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+<h2>Thank you for your order</h2>
+<p>
+  <strong>Username:</strong>
+  <%= @order.username %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @order.phone %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @order.address %>
+</p>
+
+  <% @order.carts.each do |cart| %>
+    <p>
+      <strong>Ordered Item:</strong>
+      <%= cart.food.name %>
+    </p>
+    <p>
+      <strong>Quantity:</strong> <%= cart.quantity %>
+      <strong>Price:</strong> <%= number_to_currency(cart.food.price, unit: 'VND', format: "%n %u") %>
+      <strong>Total cost:</strong>
+      <%= number_to_currency(cart.food.price * cart.quantity, unit: 'VND', format: "%n %u") %>
+    </p>
+
+  <% end %>
+
+<p>
+  <strong>Order Time: <%= @order.created_at.strftime("%A, %B %Y at %H:%M") %></strong>
+</p>
+
+<p>
+
+  <% @order.foods.each do |food| %>
+    <%= total = food.price.to_i  +  20000.to_i %> VND
+  <% end %>
+</p>

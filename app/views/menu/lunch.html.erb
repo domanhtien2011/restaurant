@@ -1,0 +1,18 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <%= link_to "Breakfast", menu_breakfast_path, class: "nav-link" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "Lunch", menu_lunch_path, class: "nav-link active" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "Dinner", menu_dinner_path, class: "nav-link" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "Drinks", menu_drink_path, class: "nav-link" %>
+  </li>
+</ul>
+
+<% @foods.each do |food| %>
+  <%= food.name %>
+<% end %>

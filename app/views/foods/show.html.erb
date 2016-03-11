@@ -22,7 +22,7 @@
 
 <p>
   <strong>Image:</strong>
-  <%= image_tag @food.imageURL %>
+  <%= image_tag @food.imageURL, size: "350x350" %>
 </p>
 
 <%= link_to 'Edit', edit_food_path(@food) %> |

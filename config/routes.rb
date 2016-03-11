@@ -1,13 +1,20 @@
 Rails.application.routes.draw do
+  # resources :orders
   resources :foods
+
   get 'welcome/index'
   root 'welcome#index'
-  get 'welcome/menu'
   get 'welcome/contact'
-  get 'welcome/breakfast'
-  get 'welcome/lunch'
-  get 'welcome/dinner'
-  get 'welcome/drink'
+
+  get 'menu/index'
+  get 'menu/breakfast'
+  get 'menu/lunch'
+  get 'menu/dinner'
+  get 'menu/drink'
+
+  get 'order/:id', to: 'orders#new', as: 'new_order'
+  post 'orders/create'
+  get 'orders/complete/:id', to: 'orders#complete', as: 'complete_order'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
