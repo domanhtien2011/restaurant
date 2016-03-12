@@ -51,3 +51,4 @@ source 'https://rails-assets.org' do
 end
 gem 'impressionist'
 gem 'ransack'
+gem 'rails_12factor', group: :production
