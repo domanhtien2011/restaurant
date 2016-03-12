@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160311162337) do
+ActiveRecord::Schema.define(version: 20160312123437) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 20160311162337) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "section_id"
-    t.string   "foodSection"
     t.string   "imageURL"
     t.integer  "order_id"
     t.integer  "views"
@@ -74,6 +73,17 @@ ActiveRecord::Schema.define(version: 20160311162337) do
     t.string   "coupon"
   end
 
+  create_table "ratings", force: :cascade do |t|
+    t.string   "name"
+    t.text     "comment"
+    t.integer  "stars"
+    t.integer  "food_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "ratings", ["food_id"], name: "index_ratings_on_food_id", using: :btree
+
   create_table "sections", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -90,4 +100,5 @@ ActiveRecord::Schema.define(version: 20160311162337) do
 
   add_foreign_key "carts", "foods"
   add_foreign_key "carts", "orders"
+  add_foreign_key "ratings", "foods"
 end

@@ -1,3 +1,17 @@
+<%= search_form_for @q do |f| %>
+  <%= f.condition_fields do |c| %>
+    <div class="field">
+      <%= c.attribute_fields do |a| %>
+        <%= a.attribute_select associations: [:section] %>
+      <% end %>
+      <%= c.predicate_select %>
+      <%= c.value_fields do |v| %>
+        <%= v.text_field :value %>
+      <% end %>
+    </div>
+    <% end %>
+  <div class="actions"><%= f.submit "Search" %></div>
+<% end %>
 <ul class="nav nav-tabs">
   <li class="nav-item">
     <%= link_to "Breakfast", menu_breakfast_path, class: "nav-link" %>
@@ -15,11 +29,11 @@
 <table class="table table-inverse" id="table-active" >
   <thead>
     <tr>
-      <th><%= sortable "Name" %></th>
+      <th><%= sort_link(@q, :name) %></th>
       <th>Description</th>
-      <th><%= sortable "Price" %></th>
+      <th><%= sort_link(@q, :price) %></th>
       <th>
-        <%= sortable "Views" %>
+        <%= sort_link(@q, :views) %>
       </th>
       <th>Order</th>
 

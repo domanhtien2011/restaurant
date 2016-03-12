@@ -1,37 +1,44 @@
 class MenuController < ApplicationController
-
-  def index
+   def index
     @section = Section.find(1)
-    @foods = @section.foods.order(sort_column + " " + sort_direction)
+    @q = @section.foods.ransack(params[:q])
+    @foods = @q.result
+
   end
 
   def breakfast
     @section = Section.find(1)
-     @foods = @section.foods.order(sort_column + " " + sort_direction)
+    @q = @section.foods.ransack(params[:q])
+    @foods = @q.result
   end
 
   def lunch
     @section = Section.find(2)
-     @foods = @section.foods.order(sort_column + " " + sort_direction)
+    @q = @section.foods.ransack(params[:q])
+    @foods = @q.result
   end
 
   def dinner
     @section = Section.find(3)
-     @foods = @section.foods.order(sort_column + " " + sort_direction)
+    @q = @section.foods.ransack(params[:q])
+    @foods = @q.result
   end
 
   def drink
     @section = Section.find(4)
-    @foods = @section.foods.order(sort_column + " " + sort_direction)
+    # @foods = @section.foods.order(sort_column + " " + sort_direction)
+     @q = @section.foods.ransack(params[:q])
+    @foods = @q.result
+    @q.build_condition
   end
 
   private
 
-  def sort_column
-    params[:sort] || "name" || "price" || "views"
-  end
+  # def sort_column
+  #   params[:sort] || "name" || "price" || "views"
+  # end
 
-  def sort_direction
-    params[:direction] || "asc"
-  end
+  # def sort_direction
+  #   params[:direction] || "asc"
+  # end
 end

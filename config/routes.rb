@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   # resources :orders
-  resources :foods
+  resources :foods do
+    resources :ratings
+  end
 
   get 'welcome/index'
   root 'welcome#index'

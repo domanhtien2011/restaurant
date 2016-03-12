@@ -5,12 +5,18 @@ class FoodsController < ApplicationController
   # GET /foods
   # GET /foods.json
   def index
-    @foods = Food.all
+    @q = Food.ransack(params[:q])
+    @foods = @q.result
   end
 
   # GET /foods/1
   # GET /foods/1.json
   def show
+    if @food.ratings.blank?
+      @avg_rating = 0
+    else
+      @avg_rating = @food.ratings.average(:stars).round(2)
+    end
   end
 
   # GET /foods/new
