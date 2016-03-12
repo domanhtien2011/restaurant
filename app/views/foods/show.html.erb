@@ -1,29 +1,31 @@
 <p id="notice"><%= notice %></p>
+<div class="star-rating" data-score= <%= @avg_rating %> > </div>
+<em><%= @food.ratings.count %> Reviews</em>
+<div class="card">
+  <%= image_tag @food.imageURL, size: "350x350", class: "card-img-top" %>
+  <div class="card-block">
+    <h4 class="card-title"> <%= @food.name %></h4>
+    <p class="card-text"><%= @food.description %></p>
+    <p class="card-text"><%= number_to_currency(@food.price, unit: 'VND', format: "%n %u") %></p>
+    <%= link_to "Rate this dish", new_food_rating_path(@food), class: "btn btn-info" %>
+  </div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @food.name %>
-</p>
+<% @food.ratings.order("created_at DESC").each do |rating| %>
+  <div class="reviews">
+    <div class="star-rating" data-score=<%= rating.stars %>>
+    </div>
+    <p><%= rating.name %></p>
+    <p><%= rating.comment %></p>
+  </div>
+<% end %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @food.description %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @food.price %>
-</p>
-
-<p>
-  <strong>Section:</strong>
-  <%= @food.foodSection %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @food.imageURL, size: "350x350" %>
-</p>
-
-<%= link_to 'Edit', edit_food_path(@food) %> |
-<%= link_to 'Back', foods_path %>
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>
