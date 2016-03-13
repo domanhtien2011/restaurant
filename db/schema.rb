@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160312123437) do
+ActiveRecord::Schema.define(version: 20160313040427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20160312123437) do
     t.string   "imageURL"
     t.integer  "order_id"
     t.integer  "views"
+    t.string   "cuisine"
   end
 
   create_table "impressions", force: :cascade do |t|

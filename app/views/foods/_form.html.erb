@@ -15,6 +15,11 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+  <br>
+  <div class="field">
+    <%= f.label :cuisine %>
+    <%= f.select(:cuisine, [['American'], ['Vietnamese'], ['Chinese'], ['Korean']]) %>
+  </div>
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
@@ -23,7 +28,7 @@
     <%= f.label :price %><br>
     <%= f.text_field :price %>
   </div>
-  <div class="field">
+    <div class="field">
     <%= f.label :imageURL %><br>
     <%= f.text_field :imageURL %>
   </div>

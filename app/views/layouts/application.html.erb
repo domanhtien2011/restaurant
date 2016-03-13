@@ -6,12 +6,24 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     <script src="sorttable.js"></script>
-
-
   </head>
   <body>
     <%= render 'layouts/navbar' %>
+
     <div class="container">
+      <%= search_form_for(@q, id: "search") do |f| %>
+        <div class="field">
+          <%= f.label :name_cont, "Name" %>
+          <%= f.text_field :name_cont %>
+        </div>
+    <% end %>
+      <ul class="nav nav-tabs">
+        <% %w(breakfast lunch dinner drink american vietnamese chinese korean).each do |item|  %>
+          <li class="nav-item">
+            <%= link_to item.capitalize, "/menu/#{item}", class: "nav-link #{'active' if current_page?('/menu/' + item)}" %>
+          </li>
+        <% end %>
+      </ul>
       <%= yield %>
     </div>
   </body>

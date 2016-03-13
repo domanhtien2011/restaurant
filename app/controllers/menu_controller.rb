@@ -29,7 +29,28 @@ class MenuController < ApplicationController
     # @foods = @section.foods.order(sort_column + " " + sort_direction)
      @q = @section.foods.ransack(params[:q])
     @foods = @q.result
-    @q.build_condition
+    # @q.build_condition
+  end
+
+  def american
+    @q = Food.where(cuisine: 'American').ransack(params[:q])
+    @foods = @q.result
+    # @foods = Food.where(cuisine: 'American')
+  end
+
+  def vietnamese
+    @q = Food.where(cuisine: "Vietnamese").ransack(params[:q])
+    @foods = @q.result
+  end
+
+  def chinese
+    @q = Food.where(cuisine: "Chinese").ransack(params[:q])
+    @foods = @q.result
+  end
+
+  def korean
+    @q = Food.where(cuisine: "Korean").ransack(params[:q])
+    @foods = @q.result
   end
 
   private

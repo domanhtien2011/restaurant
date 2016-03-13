@@ -4,15 +4,19 @@ Rails.application.routes.draw do
     resources :ratings
   end
 
-  get 'welcome/index'
+  # get 'welcome/index'
   root 'welcome#index'
   get 'welcome/contact'
 
-  get 'menu/index'
+  # get 'menu/index'
   get 'menu/breakfast'
   get 'menu/lunch'
   get 'menu/dinner'
   get 'menu/drink'
+  get 'menu/american'
+  get 'menu/vietnamese'
+  get 'menu/chinese'
+  get 'menu/korean'
 
   get 'order/:id', to: 'orders#new', as: 'new_order'
   post 'orders/create'

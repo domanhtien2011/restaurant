@@ -17,6 +17,8 @@ class FoodsController < ApplicationController
     else
       @avg_rating = @food.ratings.average(:stars).round(2)
     end
+    @q = Food.ransack(params[:q])
+    @foods = @q.result
   end
 
   # GET /foods/new
@@ -76,6 +78,6 @@ class FoodsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def food_params
-      params.require(:food).permit(:name, :description, :price, :foodSection, :imageURL, :section_id)
+      params.require(:food).permit(:name, :description, :price, :foodSection, :imageURL, :section_id, :cuisine)
     end
 end

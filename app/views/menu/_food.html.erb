@@ -1,0 +1,25 @@
+<table class="table table-inverse" id="table-active" >
+  <thead>
+    <tr>
+      <th><%= sort_link(@q, :name) %></th>
+      <th>Description</th>
+      <th><%= sort_link(@q, :price) %></th>
+      <th>
+        <%= sort_link(@q, :views) %>
+      </th>
+      <th>Order</th>
+
+    </tr>
+  </thead>
+  <% @foods.each do |food| %>
+    <tbody>
+      <tr>
+        <td><%= link_to food.name, food %></td>
+        <td><%= food.description %></td>
+        <td><%= number_to_currency(food.price, unit: 'VND', format: "%n %u") %></td>
+        <td> <%= food.views %></td>
+        <td><%= link_to "Order", new_order_path(food), class: "btn btn-primary" %></td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>
