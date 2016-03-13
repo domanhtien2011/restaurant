@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  # resources :orders
+  resource :shopping_cart
+  get 'shopping_cart/complete', to: 'shopping_carts#complete'
+  post '/buildOrder', to: 'shopping_carts#buildOrder' , as: 'new_order'
+
   resources :foods do
     resources :ratings
   end
 
-  # get 'welcome/index'
   root 'welcome#index'
   get 'welcome/contact'
 
@@ -18,7 +20,7 @@ Rails.application.routes.draw do
   get 'menu/chinese'
   get 'menu/korean'
 
-  get 'order/:id', to: 'orders#new', as: 'new_order'
+  # get 'order', to: 'orders#new', as: 'new_order'
   post 'orders/create'
   get 'orders/complete/:id', to: 'orders#complete', as: 'complete_order'
 

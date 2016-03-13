@@ -15,20 +15,6 @@
   <%= @order.address %>
 </p>
 
-  <% @order.carts.each do |cart| %>
-    <p>
-      <strong>Ordered Item:</strong>
-      <%= cart.food.name %>
-    </p>
-    <p>
-      <strong>Quantity:</strong> <%= cart.quantity %>
-      <strong>Price:</strong> <%= number_to_currency(cart.food.price, unit: 'VND', format: "%n %u") %>
-      <strong>Total cost:</strong>
-      <%= number_to_currency(cart.food.price * cart.quantity, unit: 'VND', format: "%n %u") %>
-    </p>
-
-  <% end %>
-
 <p>
   <strong>Order Time: <%= @order.created_at.strftime("%A, %B %Y at %H:%M") %></strong>
 </p>

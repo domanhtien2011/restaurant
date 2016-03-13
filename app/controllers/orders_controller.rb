@@ -14,8 +14,9 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
-    @food = Food.find(params[:id])
     @order = Order.new
+    @q = Food.ransack(params[:q])
+    @foods = @q.result
   end
 
   # GET /orders/1/edit
@@ -25,16 +26,16 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @food = Food.find(params[:food_id])
-    @order = Order.new(order_params)
+
+    @order = Order.create(order_params)
 
     respond_to do |format|
       if @order.save
-        @cart = Cart.create(
-          quantity: 1,
-          order_id: @order.id,
-          food_id: @food.id
-        )
+        # @cart = Cart.create(
+        #   quantity: 1,
+        #   order_id: @order.id,
+        #   food_id: @food.id
+        # )
         format.html { redirect_to complete_order_path(@order), notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else

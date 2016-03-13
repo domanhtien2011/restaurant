@@ -1,0 +1,14 @@
+<h1>Shopping Cart</h1>
+
+<%= render :partial => 'shopping_cart_item', :collection => @shopping_cart.shopping_cart_items %>
+
+<div>
+  <div><b>SubTotal:</b><%= number_to_currency @shopping_cart.subtotal %></div>
+  <div><b>Taxes:</b><%= number_to_currency @shopping_cart.taxes %></div>
+  <div><b>Total:</b><%= number_to_currency @shopping_cart.total %></div>
+
+<%= form_for @shopping_cart, url: new_order_path,:method => 'POST' do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  <%= f.submit 'Finish Your Order' %>
+<% end %>
