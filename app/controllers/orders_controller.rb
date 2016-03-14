@@ -37,7 +37,6 @@ class OrdersController < ApplicationController
           order_id: @order.id,
           food_id: @food.id
         )
-        UserMailer.order_success(@order).deliver
         format.html { redirect_to complete_order_path(@order), notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
@@ -49,6 +48,7 @@ class OrdersController < ApplicationController
 
   def complete
     @order = Order.find(params[:id])
+    UserMailer.order_success(@order).deliver
     @q = Food.ransack(params[:q])
     @foods = @q.result
     end
