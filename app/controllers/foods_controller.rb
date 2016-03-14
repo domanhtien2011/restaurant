@@ -24,6 +24,8 @@ class FoodsController < ApplicationController
   # GET /foods/new
   def new
     @food = Food.new
+     @q = Food.ransack(params[:q])
+    @foods = @q.result
   end
 
   # GET /foods/1/edit
