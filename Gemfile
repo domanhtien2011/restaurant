@@ -52,5 +52,4 @@ end
 gem 'impressionist'
 gem 'ransack'
 gem 'rails_12factor', group: :production
-gem "figaro"
 gem "letter_opener", :group => :development
