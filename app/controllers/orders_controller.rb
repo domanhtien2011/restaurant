@@ -16,8 +16,6 @@ class OrdersController < ApplicationController
   def new
     @food = Food.find(params[:id])
     @order = Order.new
-     @q = Food.ransack(params[:q])
-    @foods = @q.result
   end
 
   # GET /orders/1/edit
@@ -49,8 +47,6 @@ class OrdersController < ApplicationController
   def complete
     @order = Order.find(params[:id])
     UserMailer.order_success(@order).deliver
-    @q = Food.ransack(params[:q])
-    @foods = @q.result
     end
 
   # PATCH/PUT /orders/1
@@ -85,6 +81,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:username, :phone, :address, :email)
+      params.require(:order).permit(:username, :phone, :address, :email, :coupon)
     end
 end

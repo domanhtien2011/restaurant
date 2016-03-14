@@ -17,3 +17,11 @@
 //= require turbolinks
 //= require_tree .
 
+
+$(document).ready(function() {
+    $('#foodName').hover(function() {
+        $('#picture-popup').show();
+    }, function() {
+        $('#picture-popup').hide();
+    });
+});

@@ -1,38 +1,63 @@
-<%= form_for @order,  url: orders_create_path(@order) do |f| %>
-  <% if @order.errors.any? %>
+<div class="row">
+  <div class="col-sm-12">
+    <%= form_for @order, url: orders_create_path(@order) do |f| %>
+    <% if @order.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
-
       <ul>
-      <% @order.errors.full_messages.each do |message| %>
+        <% @order.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-      <% end %>
+        <% end %>
       </ul>
     </div>
-  <% end %>
-  <%= hidden_field_tag(:food_id, @food.id) %>
-  <div class="field">
-    <%= f.label :coupon %><br>
-    <%= f.text_field :coupon %>
-  </div>
+    <% end %>
+    <%= hidden_field_tag(:food_id, @food.id) %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :username %>
+    <div class="form-group row">
+      <div class="form-control-label col-sm-3">
+        <%= f.label :name %>
+      </div>
+      <div class="form-control-label col-sm-9">
+        <%= f.text_field :username %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="form-control-label col-sm-3">
+        <%= f.label :coupon %>
+      </div>
+      <div class="col-sm-9">
+        <%= f.text_field :coupon %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="form-control-label col-sm-3">
+        <%= f.label :phone %>
+      </div>
+      <div class="form-control-label col-sm-9">
+        <%= f.telephone_field :phone %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="form-control-label col-sm-3">
+        <%= f.label :address %>
+      </div>
+      <div class="form-control-label col-sm-9">
+        <%= f.text_field :address %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="form-control-label col-sm-3">
+        <%= f.label :email %>
+      </div>
+      <div class="form-control-label col-sm-9">
+        <%= f.text_field :email %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-offset-3 col-sm-9">
+        <%= f.submit class: "btn btn-primary" %>
+      </div>
+    </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.telephone_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

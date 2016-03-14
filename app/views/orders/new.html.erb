@@ -1,12 +1,18 @@
 <% if current_page?(action: 'new') %>
   <style>
     body {
-      background-image: url(/assets/order.jpg);
+      background: url(/assets/order.jpg) no-repeat center center fixed;
+      background-attachment: fixed;
+     -webkit-background-size: cover;
+       -moz-background-size: cover;
+       -o-background-size: cover;
+       background-size: cover;
+      background-repeat: no-repeat;
     }
   </style>
 <% end %>
 
-<h1>New Order</h1>
+<h1 class="text-sm-center" id="form_order">New Order</h1>
 
 <%= render 'form' %>
 

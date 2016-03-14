@@ -5,8 +5,6 @@ class FoodsController < ApplicationController
   # GET /foods
   # GET /foods.json
   def index
-    @q = Food.ransack(params[:q])
-    @foods = @q.result
   end
 
   # GET /foods/1
@@ -17,15 +15,11 @@ class FoodsController < ApplicationController
     else
       @avg_rating = @food.ratings.average(:stars).round(2)
     end
-    @q = Food.ransack(params[:q])
-    @foods = @q.result
   end
 
   # GET /foods/new
   def new
     @food = Food.new
-     @q = Food.ransack(params[:q])
-    @foods = @q.result
   end
 
   # GET /foods/1/edit

@@ -3,7 +3,6 @@ class MenuController < ApplicationController
     @section = Section.find(1)
     @q = @section.foods.ransack(params[:q])
     @foods = @q.result
-
   end
 
   def breakfast

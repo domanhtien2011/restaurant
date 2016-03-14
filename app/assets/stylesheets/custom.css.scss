@@ -8,11 +8,8 @@
   margin-top: 20px;
 }
 
-#description {
-  color: #0275d8;
-}
 
-#order {
+.headerColor {
   color: #0275d8;
 }
 
@@ -30,6 +27,82 @@
    width: 100%;
  }
 
- body {
+body {
+  font-family: 'Sevillana', cursive;
    // background-image: url(/assets/res.jpg);
  }
+
+#form_order {
+  margin-top : 20px;
+  margin-bottom: 20px;
+}
+
+/*flash*/
+.alert-error {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+ }
+
+// flash
+.alert-alert {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+ }
+
+.alert-success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: left;
+ }
+
+.alert-notice {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: left;
+ }
+
+ #picture-popup {
+     height: 50px;
+     width: 200px;
+     text-align: center;
+     vertical-align:middle;
+     background-color: cornflowerblue;
+     color: white;
+     display: none;
+     padding-top: 8px;
+     position: absolute;
+ }
+
+.image-show {
+  margin-top: 15px;
+}
+
+.glassy {
+  box-shadow:rgba(0,0,0,0.5) 0px 0px 24px;
+  background: lightgray;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  /* Prevent background color leak outs */
+    -webkit-background-clip: padding-box;
+    -moz-background-clip:    padding;
+    background-clip:         padding-box;
+}
+
+.glassy-comment {
+  box-shadow:rgba(0,0,0,0.5) 0px 0px 24px;
+  background:   pink;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  /* Prevent background color leak outs */
+    -webkit-background-clip: padding-box;
+    -moz-background-clip:    padding;
+    background-clip:         padding-box;
+}

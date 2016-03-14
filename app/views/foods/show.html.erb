@@ -1,11 +1,10 @@
-<p id="notice"><%= notice %></p>
-<div class="card">
-  <%= image_tag @food.imageURL, size: "350x350", class: "card-img-top img-fluid center-block" %>
+<div class="card glassy" style="margin-top: 20px;">
+  <%= image_tag @food.imageURL, size: "350x350", class: "card-img-top img-fluid center-block image-show" %>
   <div class="card-block">
     <h4 class="card-title text-sm-center"> <%= @food.name %></h4>
     <div class="text-sm-center">
         <p class="text-muted"><%= number_to_currency(@food.price, unit: 'VND', format: "%n %u") %></p>
-      <p class="text-muted">Average Review(<em><%= @food.ratings.count %> Reviews</em>)</p>
+      <p class="text-muted">Average Review(<em><%= pluralize(@food.ratings.count, 'review') %></em>)</p>
       <div class="star-rating text-muted" data-score= <%= @avg_rating %> ></div>
     </div>
     <hr>
@@ -18,13 +17,14 @@
   </div>
 </div>
 
-<div class="card">
+<div class="card glassy-comment">
   <div class="card-block">
   <h4 class="card-title text-sm-center">All Reviews</h4>
+  <hr>
   <% @food.ratings.order("created_at DESC").each do |rating| %>
     <div class="reviews">
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-12">
           <p>
             <strong>Name:</strong> <%= rating.name %>
           </p>

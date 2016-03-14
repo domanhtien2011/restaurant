@@ -12,6 +12,7 @@ class RatingsController < ApplicationController
     @rating.food_id = @food.id
 
     if @rating.save
+      flash[:success] = "Thank you for rating our dish"
       redirect_to food_path(@food)
     else
       render 'new'
