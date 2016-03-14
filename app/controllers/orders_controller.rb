@@ -37,7 +37,7 @@ class OrdersController < ApplicationController
           order_id: @order.id,
           food_id: @food.id
         )
-        # UserMailer.order_success(@order).deliver
+        UserMailer.order_success(@order).deliver
         format.html { redirect_to complete_order_path(@order), notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
