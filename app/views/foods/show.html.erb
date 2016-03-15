@@ -25,7 +25,7 @@
 
     <p class="card-text"><%= @food.description %></p>
     <hr>
-    <%= link_to "Order", new_order_path(@food), class: "btn btn-primary center-block" %>
+    <%= link_to "Order", new_order_path(@food), class: "btn btn-warning center-block" %>
     <br>
     <%= link_to "Rate this dish", new_food_rating_path(@food), class: "btn btn-info center-block" %>
   </div>
@@ -50,6 +50,7 @@
           <p>
             <strong>Comment:    </strong> <%= rating.comment %>
           </p>
+          <%= social_share_button_tag%>
       </div>
     </div>
   </div>

@@ -11,12 +11,7 @@
     <%= render 'layouts/navbar' %>
     <%= render 'layouts/messages' %>
     <div class="container">
-      <%= search_form_for(@q, id: "search") do |f| %>
-        <div class="field">
-          <%= f.label :name_cont, "Search Food by Name" %>
-          <%= f.text_field :name_cont %>
-        </div>
-    <% end %>
+
       <ul class="nav nav-tabs">
         <% %w(breakfast lunch dinner drink american vietnamese chinese korean).each do |item|  %>
           <li class="nav-item">
@@ -28,7 +23,7 @@
     </div>
   </body>
   <div class="container">
-    <footer class="footer">
+    <footer class="footer" style="color: deeppink; margin-top: 20px;">
       &copy; Tien Manh Do 2016
     </footer>
   </div>

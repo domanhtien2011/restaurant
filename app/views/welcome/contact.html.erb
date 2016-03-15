@@ -1,3 +1,18 @@
+<% if current_page?(action: 'contact') %>
+  <style>
+    body {
+      color: orangered;
+       background: url(/assets/contact.jpg) no-repeat center center fixed;
+       background-attachment: fixed;
+      -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+       background-repeat: no-repeat;
+    }
+  </style>
+<% end %>
+
 <h1 style="margin-top: 25px">Contact us</h1>
 <div>Phone number: <a href="tel: 84 8 3776 1369">+84 8 3776 1369</a></div>
 <address>Address: 702 Nguyen Van Linh, District 7, Hồ Chí Minh, Vietnam</address>

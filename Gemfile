@@ -53,3 +53,5 @@ gem 'impressionist'
 gem 'ransack'
 gem 'rails_12factor', group: :production
 gem "letter_opener", :group => :development
+gem 'social-share-button'
+gem "font-awesome-rails"

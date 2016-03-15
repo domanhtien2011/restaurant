@@ -3,8 +3,6 @@ class RatingsController < ApplicationController
   def new
     @rating = @food.ratings.build
     @rating.food_id = @food.id
-    @q = Food.ransack(params[:q])
-    @foods = @q.result
   end
 
   def create

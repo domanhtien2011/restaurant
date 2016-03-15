@@ -1,20 +1,37 @@
+<% if current_page?(action: 'complete') %>
+  <style>
+    body {
+       background: url(/assets/checkout.jpg) no-repeat center center fixed;
+       background-attachment: fixed;
+      -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+       background-repeat: no-repeat;
+    }
+  </style>
+<% end %>
+
 <div class="row">
   <div class="col-lg-12">
-    <h2 class="" style="margin-top: 20px; margin-bottom: 20px;">Thank you for your order</h2>
-    <h4 class="">Your order was created at <code><%= @order.created_at.strftime("%A, %B %d, %H:%M") %></code></h4>
+    <div class="row">
+      <h2 class="col-sm-4" style="margin-top: 20px;">Thank you for your order</h2>
+      <h4 class="col-sm-8" style="margin-top: 20px;">Your order was created at <code><%= @order.created_at.strftime("%A, %B %d, %H:%M") %></code></h4>
+    </div>
+    <hr>
     <dl>
       <dt class="col-sm-3">Your name</dt>
-      <dd class="col-sm-9"><%= @order.username %></dd>
+      <dd class="col-sm-9 complete-color"><%= @order.username %></dd>
       <dt class="col-sm-3">Your coupon</dt>
-      <dd class="col-sm-9"><%= @order.coupon %></dd>
+      <dd class="col-sm-9 complete-color"><%= @order.coupon %></dd>
       <dt class="col-sm-3">Your phone number</dt>
-      <dd class="col-sm-9"><%= @order.phone %></dd>
+      <dd class="col-sm-9 complete-color"><%= @order.phone %></dd>
       <dt class="col-sm-3">Your address</dt>
-      <dd class="col-sm-9"><%= @order.address %></dd>
+      <dd class="col-sm-9 complete-color"><%= @order.address %></dd>
       <dt class="col-sm-3">Your email</dt>
-      <dd class="col-sm-9"><%= @order.email %></dd>
+      <dd class="col-sm-9 complete-color"><%= @order.email %></dd>
     </dl>
-      <hr>
+    <hr>
       <table class="table table-inverse">
         <thead>
           <tr>
@@ -34,7 +51,7 @@
             <td><%= cart.food.name %></td>
             <td><%= number_to_currency(cart.food.price, unit: 'VND', format: "%n %u") %></td>
             <td><%= cart.quantity %></td>
-            <td><%= number_to_currency(cart.quantity * cart.food.price, unit: 'VND', format: "%n %u") %></td>
+            <td class="price"><%= number_to_currency(cart.quantity * cart.food.price, unit: 'VND', format: "%n %u") %></td>
           </tr>
           <% total += (cart.quantity * cart.food.price) %>
           <% index += 1 %>
@@ -42,27 +59,27 @@
           <tr>
             <th scope="row"><%= index %></th>
             <td colspan="3">Delivery fee</td>
-            <td><%= number_to_currency(20000, unit: 'VND', format: '%n %u') %></td>
+            <td class="price"><%= number_to_currency(20000, unit: 'VND', format: '%n %u') %></td>
           </tr>
           <% if @order.coupon == 'CODERSCHOOL' %>
             <% index += 1 %>
             <tr>
               <th scope="row"><%= index %></th>
               <td colspan="3">Coupon</td>
-              <td><%= @order.coupon %></td>
+              <td style="color: red;"><%= @order.coupon %></td>
             </tr>
 
           <% end %>
           <tr>
             <th scope="row"></th>
             <td colspan="3"><strong>Total</strong></td>
-            <td><strong><%= number_to_currency(20000 + total, unit: 'VND', format: '%n %u') %></strong></td>
+            <td class="price"><strong><%= number_to_currency(20000 + total, unit: 'VND', format: '%n %u') %></strong></td>
           </tr>
           <% if @order.coupon == 'CODERSCHOOL' %>
           <tr>
             <th scope="row"></th>
             <td colspan="3"><strong>Total after coupon discount(<%= @order.coupon %>)</strong></td>
-            <td><strong><%= number_to_currency((20000 + total)/2, unit: 'VND', format: '%n %u') %></strong></td>
+            <td class="price"><strong><%= number_to_currency((20000 + total)/2, unit: 'VND', format: '%n %u') %></strong></td>
           </tr>
           <% end %>
         </tbody>

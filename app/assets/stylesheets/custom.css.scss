@@ -1,4 +1,7 @@
 @import "bootstrap";
+@import "social-share-button";
+@import "font-awesome";
+
 
 #table-active {
   margin-top: 20px;
@@ -28,6 +31,7 @@
  }
 
 body {
+  color: black;
   font-family: 'Sevillana', cursive;
     background: url(/assets/03.jpg) no-repeat center center fixed;
     background-attachment: fixed;
@@ -87,6 +91,8 @@ body {
 
 .image-show {
   margin-top: 15px;
+  border: 5px solid deeppink;
+  border-radius: 30px;
 }
 
 .glassy {
@@ -104,7 +110,7 @@ body {
 .glassy-comment {
   box-shadow:rgba(0,0,0,0.5) 0px 0px 24px;
   // background:   pink;
-  color:black;
+  color: deeppink;
   background-color: rgba(5,4,2,0.1);
   -webkit-border-radius: 12px;
   -moz-border-radius: 12px;
@@ -114,3 +120,68 @@ body {
     -moz-background-clip:    padding;
     background-clip:         padding-box;
 }
+
+#transparent-rating {
+  background-color: rgba(5,4,2,0.1);
+  color: hotpink;
+}
+
+.transparent-label {
+  background-color: rgba(5,4,2,0.1);
+}
+
+.label-color {
+  color: #5bc0de;
+}
+
+.nav-tabs > li > a{
+  color: orangered !important;
+}
+
+.complete-color {
+  color: navy;
+}
+
+.price {
+  color: orange;
+}
+
+// Custom search form
+#custom-search-input {
+    margin: 0;
+    margin-top: 10px;
+    padding: 0;
+}
+
+#custom-search-input .search-query {
+    padding-right: 3px;
+    padding-right: 4px \9;
+    padding-left: 3px;
+    padding-left: 4px \9;
+
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#custom-search-input button {
+    border: 0;
+    background: none;
+
+    /** belows styles are working good */
+    padding: 2px 5px;
+    margin-top: 2px;
+    position: relative;
+    left: -28px;
+
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color: #3596e0;
+}
+

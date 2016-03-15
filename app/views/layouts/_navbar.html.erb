@@ -13,8 +13,14 @@
       <%= link_to 'New Food', new_food_path, class: "nav-link" %>
     </li>
   </ul>
-  <form class="form-inline pull-xs-right">
-    <input class="form-control" type="text" placeholder="Search">
-    <button class="btn btn-success-outline" type="submit">Search</button>
-  </form>
+  <%= search_form_for(@q, :id => 'custom-search-input search', method: :get, class: "navbar-form navbar-custom-form pull-sm-right", role: "search") do |f| %>
+        <div class="input-group">
+          <%= f.text_field :name_cont, class: "form-control", placeholder: "Search your food here..." %>
+          <span class="input-group-btn">
+            <%= f.button(:class => "btn btn-secondary") do %>
+              <span class="fa fa-search"></span>
+            <% end %>
+          </span>
+        </div>
+      <% end %>
 </nav>

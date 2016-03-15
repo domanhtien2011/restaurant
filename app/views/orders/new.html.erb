@@ -1,7 +1,9 @@
-<% if current_page?(action: 'new') %>
+<%= render 'shared/errors', obj: @order %>
+
+<% if current_page?(controller: 'orders', action: 'new') || request.original_url == '/orders/create' %>
   <style>
     body {
-      background: url(/assets/order.jpg) no-repeat center center fixed;
+      background: url(/assets/order2.jpg) no-repeat center center fixed;
       background-attachment: fixed;
      -webkit-background-size: cover;
        -moz-background-size: cover;
@@ -12,7 +14,7 @@
   </style>
 <% end %>
 
-<h1 class="text-sm-center" id="form_order">New Order</h1>
+<h1 class="text-sm-center" id="form_order" style="">New Order</h1>
 
 <%= render 'form' %>
 

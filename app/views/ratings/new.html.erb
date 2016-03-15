@@ -1,18 +1,23 @@
+<%= render 'shared/errors', obj: @rating %>
+<% if current_page?(controller: 'ratings', action: 'new') %>
+  <style>
+    body {
+      background: url(/assets/emo3.jpg) no-repeat center center fixed;
+      background-attachment: fixed;
+     -webkit-background-size: cover;
+       -moz-background-size: cover;
+       -o-background-size: cover;
+       background-size: cover;
+      background-repeat: no-repeat;
+    }
+  </style>
+<% end %>
+<div id="rating-form">
 <%= form_for([@food, @rating]) do |f| %>
-  <% if @rating.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@rating.errors.count, "error") %> prohibited this rating from being saved:</h2>
-      <ul>
-      <% @rating.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <br>
+
 
   <div class="form-group row">
-    <div class="form-control-label col-sm-3">
+    <div class="form-control-label col-sm-3 label-color">
       How does it taste?
     </div>
     <div class="col-sm-9">
@@ -22,29 +27,29 @@
 
   <div class="form-group row">
     <div class="form-control-label col-sm-3">
-      <%= f.label :name %>
+      <%= f.label :name, class: "label-color" %>
     </div>
     <div class="col-sm-9">
-      <%= f.text_field :name, class: "form-control" %>
+      <%= f.text_field :name, class: "form-control", id: "transparent-rating" %>
     </div>
   </div>
 
   <div class="form-group row">
     <div class="form-control-label col-sm-3">
-      <%= f.label :comment %>
+      <%= f.label :comment, class: "label-color" %>
     </div>
     <div class="col-sm-9">
-      <%= f.text_area :comment, class: "form-control", rows: 10 %>
+      <%= f.text_area :comment, class: "form-control", rows: 10, id: "transparent-rating" %>
     </div>
   </div>
 
   <div class="form-group row">
     <div class="col-sm-offset-3 col-sm-9">
-      <%= f.submit class: "btn btn-primary" %>
+      <%= f.submit class: "btn btn-info"%>
     </div>
   </div>
 <% end %>
-
+</div>
 <script>
   $('#star-rating').raty({
       path: '/assets/',
