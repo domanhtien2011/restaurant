@@ -36,7 +36,7 @@ The following **optional** features are implemented:
 * [x] The User receives an email upon placing an order.
 
 The following **additional** features are implemented:
-* [x] Share information about the food with by using their social network accounts
+* [x] Share information about the food with their friend by using their social network accounts
 
 ## Notes
 My challenges when building the app are:
