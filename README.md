@@ -1,7 +1,7 @@
 **restaurant1989** is a Ruby on Rails blog application.
 Submitted by: **Tiến Mạnh Đỗ**
 Time spent: **32** hours spent in total
-URL: **http://restauran1989.herokuapp.com/**
+URL: **http://restaurant1989.herokuapp.com/**
 ## User Stories
 The following **required** functionality is complete:
 * [x] The User must be able to go two pages: Menu, and Contact Us.
