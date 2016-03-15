@@ -46,9 +46,9 @@ My challenges when building the app are:
 ## Video Walkthrough
 
 Here are 2 video walkthroughs of implemented user stories:
-> `![Video Walkthrough](walkthrough.gif)`
+> `![Video Walkthrough](https://github.com/domanhtien2011/restaurant/blob/master/walkthrough1.gif)`
 >
-> `![Video Walkthrough](walkthrough.gif)`
+> `![Video Walkthrough](https://github.com/domanhtien2011/restaurant/blob/master/walkthrough2.gif)`
 >
 ![Video Walkthrough]()
 GIF created with [Byzanz](https://github.com/GNOME/byzanz)
