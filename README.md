@@ -45,7 +45,9 @@ My challenges when building the app are:
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented user stories:
+Here are 2 video walkthroughs of implemented user stories:
+> `![Video Walkthrough](walkthrough.gif)`
+>
 > `![Video Walkthrough](walkthrough.gif)`
 >
 ![Video Walkthrough]()
