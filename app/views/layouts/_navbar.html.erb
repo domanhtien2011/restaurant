@@ -9,9 +9,6 @@
     <li class="nav-item">
       <%= link_to 'Contact Us', welcome_contact_url, class: "nav-link" %>
     </li>
-    <li class="nav-item">
-      <%= link_to 'New Food', new_food_path, class: "nav-link" %>
-    </li>
   </ul>
   <%= search_form_for(@q, :id => 'custom-search-input search', method: :get, class: "navbar-form navbar-custom-form pull-sm-right", role: "search") do |f| %>
         <div class="input-group">
